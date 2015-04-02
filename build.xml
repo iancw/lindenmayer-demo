@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="final" default="jar" basedir=".">
+  <target name="jar" depends="compile">
+    <jar jarfile="final.jar">
+      <manifest>
+       <attribute name="Class-Path" value=""/>
+       <attribute name="Main-Class" value="edu.gwu.graphics2.Main"/>
+      </manifest>
+      <fileset dir="bin2">
+       <include name="edu/**/*.class"/>
+      </fileset>
+      <fileset dir="src">
+       <include name="edu/**/*.java"/>
+      </fileset>
+    </jar>
+  </target>
+  <target name="clean">
+   <delete dir="bin2"/> 
+   <delete file="final.jar"/> 
+  </target>
+  <target name="compile">
+    <mkdir dir="bin2"/>
+    <javac destdir="bin2" includeantruntime="false">
+      <src path="src"/>
+    </javac>
+  </target>
+</project> 
